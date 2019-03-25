@@ -33,7 +33,12 @@ class Enemies():
         for i in range(len(self.queue)):
             screen.blit(self.enemies[self.queue[i]], (self.x[i], self.y[i]))
             self.x[i] -= 1
-
+            
+    def check(self):
+            if self.x[0] < 0:
+                del self.x[0]
+            
     def do(self, screen):
         self.add(screen)
         self.draw(screen)
+        self.check()
